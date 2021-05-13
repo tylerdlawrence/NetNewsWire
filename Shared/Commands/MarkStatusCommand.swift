@@ -26,6 +26,7 @@ final class MarkStatusCommand: UndoableCommand {
         // Filter out articles that already have the desired status.
 		let articlesToMark = MarkStatusCommand.filteredArticles(initialArticles, statusKey, flag)
 		if articlesToMark.isEmpty {
+			completion?()
 			return nil
 		}
 		self.articles = Set(articlesToMark)
